@@ -2,6 +2,7 @@ import React from "react";
 
 const ProductCard = ({
   tag = "",
+  currency = "",
   image,
   title,
   fulfilledBy = "",
@@ -19,8 +20,12 @@ const ProductCard = ({
       )}
 
       {/* Product Image */}
-      <div className="flex justify-center items-center">
-        <img src={image} alt={title} className="h-48 w-auto object-contain" />
+      <div className="flex justify-center  items-center">
+        <img
+          src={image}
+          alt={title}
+          className="h-48 w-auto rounded-lg object-contain"
+        />
       </div>
 
       {/* Product Details */}
@@ -36,7 +41,9 @@ const ProductCard = ({
       </div>
 
       {/* Price */}
-      <div className="mt-4 text-lg font-bold">AED {price.toLocaleString()}</div>
+      <div className="mt-4 text-lg font-bold">
+        {currency} {price.toLocaleString()}
+      </div>
 
       {/* Delivery Info */}
       <div className="text-sm mt-2">
