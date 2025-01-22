@@ -12,6 +12,7 @@ function App() {
         title="RAZER Iskur V2 X Gaming Chair"
         fulfilledBy="Microless"
         price={1092}
+        currency="USD"
         deliveryDate="Tomorrow, Jan 23"
         storePickup={true}
       />
