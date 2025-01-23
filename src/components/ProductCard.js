@@ -2,6 +2,8 @@ import React from "react";
 
 const ProductCard = ({
   tag = "",
+  discount = "30%",
+  bundle = "4 items",
   currency = "",
   image,
   title,
@@ -13,11 +15,18 @@ const ProductCard = ({
   return (
     <div className="bg-white dark:bg-gray-800 text-black dark:text-white p-4 rounded-lg shadow-lg w-full max-w-sm sm:w-80">
       {/* Tag */}
-      {tag && (
-        <div className="w-12 -ml-2 px-3 py-1 mb-2 bg-green-500 text-xs text-white rounded-tr-lg rounded-bl-lg">
-          {tag}
-        </div>
-      )}
+      <div className="flex justify-between mb-2">
+        {tag && (
+          <div className="w-12 -ml-2 px-3 py-1 mb-2 bg-green-500 text-xs text-white rounded-tr-lg rounded-bl-lg">
+            {tag}
+          </div>
+        )}
+        {bundle && (
+          <div className="w-24 text-center -mr-4 px-3 py-1 mb-2 bg-red-500 text-xs text-red-100 rounded-tl-lg ">
+            {bundle}
+          </div>
+        )}
+      </div>
 
       {/* Product Image */}
       <div className="flex justify-center  items-center">
@@ -27,6 +36,14 @@ const ProductCard = ({
           className="h-48 w-auto rounded-lg object-contain"
         />
       </div>
+
+      {discount && (
+        <div className="w-full flex mt-4 justify-end">
+          <div className="w-12 -ml-2 px-3 py-1 mb-2 bg-green-300 text-xs text-green-600 rounded-tr-lg rounded-bl-lg">
+            {discount}
+          </div>
+        </div>
+      )}
 
       {/* Product Details */}
       <div className="mt-4">
