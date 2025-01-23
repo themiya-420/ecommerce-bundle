@@ -13,7 +13,10 @@ const ProductCard = ({
   storePickup = true,
 }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 text-black dark:text-white p-4 rounded-lg shadow-lg w-full max-w-sm sm:w-80">
+    <div
+      className="bg-white dark:bg-gray-800 border-[1px] border-gray-2 dark:border-gray-700
+    00 text-black dark:text-white p-4 rounded-lg shadow-lg w-full max-w-sm sm:w-80"
+    >
       {/* Tag */}
       <div className="flex justify-between mb-2">
         {tag && (
