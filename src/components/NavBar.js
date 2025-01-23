@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CiUser, CiHeart, CiShoppingCart, CiSearch } from "react-icons/ci";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = ({
   whisList = "/wishlist",
@@ -106,6 +107,9 @@ const Navbar = ({
               <span className="hidden sm:block">Cart</span>
             </div>
           </a>
+
+          {/* Theme Toggle */}
+          <ThemeToggle />
         </div>
       </div>
     </nav>
