@@ -3,6 +3,7 @@ import { CiUser, CiHeart, CiShoppingCart, CiSearch } from "react-icons/ci";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = ({
+  products = [], // List of products
   whisList = "/wishlist",
   cart = "/cart",
   buttonColor = "bg-yellow-500",
@@ -11,6 +12,8 @@ const Navbar = ({
   user = { email: "hello@email.com", name: "Hello There" }, // User info when logged in
 }) => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -19,6 +22,19 @@ const Navbar = ({
   const handleLogout = () => {
     alert("Logged out!");
     // Add logout functionality here
+  };
+
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+    if (query.length > 0) {
+      const results = products.filter((product) =>
+        product.name.toLowerCase().includes(query)
+      );
+      setFilteredProducts(results);
+    } else {
+      setFilteredProducts([]);
+    }
   };
 
   return (
@@ -30,10 +46,12 @@ const Navbar = ({
         </div>
 
         {/* Search Bar */}
-        <div className="hidden sm:flex items-center w-full max-w-md mx-4">
+        <div className="relative w-full max-w-md mx-4">
           <input
             type="text"
-            className="w-full bg-gray-100 dark:bg-gray-800 text-black dark:text-white px-4 py-2 rounded-l-lg focus:outline-none"
+            value={searchQuery}
+            onChange={handleSearch}
+            className="w-96 bg-gray-100 dark:bg-gray-800 text-black dark:text-white px-4 py-2 rounded-l-lg focus:outline-none"
             placeholder="What are you looking for?"
           />
           <button
@@ -41,6 +59,19 @@ const Navbar = ({
           >
             <CiSearch className="h-5 w-5" />
           </button>
+          {/* Search Results */}
+          {filteredProducts.length > 0 && (
+            <div className="absolute left-0 mt-2 w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg max-h-60 overflow-y-auto z-10">
+              {filteredProducts.map((product, index) => (
+                <div
+                  key={index}
+                  className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                >
+                  <a href={product.link}>{product.name}</a>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Icons */}
