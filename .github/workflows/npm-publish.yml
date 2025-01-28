@@ -6,7 +6,7 @@ name: ecom-bundle
 on:
   push:
     branches:
-      - publish
+      - main
     tags:
       - v*
 
