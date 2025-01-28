@@ -1,6 +1,6 @@
 {
   "name": "ecommerce-bundle",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reusable React components for e-commerce apps",
   "main": "dist/index.js",
   "module": "dist/index.js",
