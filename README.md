@@ -2,7 +2,6 @@
 
 **Ecommerce Bundle** is a collection of reusable React components designed for building e-commerce applications quickly and efficiently. This package includes essential components like navigation bars, carousels, product cards, and product detail views.
 
-
 ## Installation
 
 Use the package manager npm or yarn to install the modules
@@ -11,6 +10,18 @@ Use the package manager npm or yarn to install the modules
 npm install ecommerce-bundle
 ```
 
+### Install TailwidCSS
+
+```bash
+npm install -D tailwindcss
+npm init tailwindcss
+```
+
+In the tailwind.config.js add this to content:
+
+```python
+"./node_modules/ecommerce-bundle/dist/**/*.{js,jsx,ts,tsx}"
+```
 
 ## Usage
 
